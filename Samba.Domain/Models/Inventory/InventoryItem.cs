@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Samba.Infrastructure.Data;
+using System;
 
 namespace Samba.Domain.Models.Inventory
 {
@@ -10,6 +11,8 @@ namespace Samba.Domain.Models.Inventory
         public string TransactionUnit { get; set; }
         public int TransactionUnitMultiplier { get; set; }
         public string Warehouse { get; set; }
+
+        public DateTime ExpirationDate { get; set; }
 
         public decimal Multiplier
         {

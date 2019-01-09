@@ -1,20 +1,22 @@
-﻿#Çorbalar
-Şırdan Tuzlama 8
-İşkembe 6.50
-İşkembe Tuzlama 8
-Ayak Paça 8
-Kelle Paça 9
-#Specialler
-Mumbar Dolma 9
-İşkembe Güveç 9
-Tereyağında Tuzlama 7
-Kuzu Kelle 8
-Beyin Tava 8
-#Döner
-Ankara Döneri 8
-Dürüm Döner 8
-İskender 9
-Kapalı Döner 9
+﻿#Breakfast
+Toasted Bagel Jam 8
+Toasted Bagel Cheese 6.50
+Cold Cereal with toast 8
+Toast and Jam 8
+Egg Bacon Cheese 9
+Bacon and Cheese 8
+Bacon and Tomato 7
+#Souap
+Soup and Crackers 9
+Souap and Toasted bagel 9
+Salad with Soup 7
+#Wraps
+Checken Garden Wrap 8
+Checken Ceaser Wrap 8
+Mexican Wrap 9
+Checken Greek Wrap 9
+Canadian Wrap 10
+Vegetarian Wrap 8
 #Pideler
 Kıymalı Pide 6
 Kuşbaşılı Pide 7

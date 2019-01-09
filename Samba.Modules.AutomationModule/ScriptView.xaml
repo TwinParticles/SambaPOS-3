@@ -18,14 +18,25 @@
             <TextBox Text="{Binding HandlerName}" MinWidth="200" HorizontalAlignment="Left" />
             <Label Content="{LocText Script,Suffix=':'}" />
             <Border BorderThickness="1" BorderBrush="{StaticResource {x:Static SystemColors.ActiveBorderBrushKey}}">
-                <avalonedit:TextEditor FontFamily="Lucida Console" FontSize="12" Document="{Binding ScriptText}" SyntaxHighlighting="SambaDSL" MinWidth="250" MinHeight="200" 
-                                       HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Visible"/>
+                <avalonedit:TextEditor 
+                    FontFamily="Lucida Console" 
+                    FontSize="12" 
+                    Document="{Binding ScriptText}" 
+                    SyntaxHighlighting="SambaDSL" 
+                    MinWidth="250" 
+                    MinHeight="200" 
+                    HorizontalScrollBarVisibility="Auto" 
+                    VerticalScrollBarVisibility="Visible"/>
             </Border>
         </StackPanel>
 
         <StackPanel Grid.Row="1">
-            <Button HorizontalAlignment="Left" Margin="0,10,3,0" MinWidth="70" Content="{Binding SaveCommand.Caption}"
-             Command="{Binding SaveCommand}" />
+            <Button 
+                HorizontalAlignment="Left" 
+                Margin="0,10,3,0" 
+                MinWidth="70" 
+                Content="{Binding SaveCommand.Caption}"
+                Command="{Binding SaveCommand}" />
             <Label Content="{Binding Error}" Foreground="Red" />
         </StackPanel>
     </Grid>

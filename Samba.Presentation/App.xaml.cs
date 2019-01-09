@@ -5,6 +5,7 @@ using Samba.Infrastructure.Messaging;
 using Samba.Presentation.Common.ErrorReport;
 using Samba.Presentation.Services;
 using Samba.Services.Common;
+using System.Globalization;
 
 namespace Samba.Presentation
 {
@@ -16,6 +17,35 @@ namespace Samba.Presentation
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
+            var aes = new AES();
+            var licenseType = RegistryHelper.readRegistryKey("licenseType");
+            if (licenseType == null)
+            {
+                RegistryHelper.writeRegistryKey("licenseType", aes.EncryptToString("trial"));
+                RegistryHelper.writeRegistryKey("trialExpirationDate", aes.EncryptToString(DateTime.UtcNow.AddDays(15).ToString("dd:MM:yyyy")));
+                RegistryHelper.writeRegistryKey("lastCheckDate", aes.EncryptToString(DateTime.UtcNow.ToString("dd:MM:yyyy")));
+            }
+            else if (RegistryHelper.readRegistryKey("licenseType") == aes.EncryptToString("trial"))
+            {
+
+                var trialExpirationDate = DateTime.ParseExact(aes.DecryptString(RegistryHelper.readRegistryKey("trialExpirationDate")), "dd:MM:yyyy", new CultureInfo("en-US"));
+                var lastCheckDate = DateTime.ParseExact(aes.DecryptString(RegistryHelper.readRegistryKey("lastCheckDate")), "dd:MM:yyyy", new CultureInfo("en-US"));
+
+                if (lastCheckDate > DateTime.UtcNow || trialExpirationDate < DateTime.UtcNow)
+                {
+                    MessageBox.Show("Problem with the license, please contact the technical support on the following eamil: senlite.tech@gmail.com.");
+                    return;
+                }
+            }
+            else if (RegistryHelper.readRegistryKey("licenseType") == aes.EncryptToString("full version"))
+            {
+
+            }
+            else
+            {
+                MessageBox.Show("Problem with the license, please contact the technical support on the following eamil: senlite.tech@gmail.com.");
+                return;
+            }
 #if (DEBUG)
             RunInDebugMode();
 #else
